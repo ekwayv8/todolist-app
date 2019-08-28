@@ -4,10 +4,12 @@
   <ul>
   <% @categories.each do  |category|%>
   <li><%= category.title  %></li>
-  <div class="card">
+  <!-- Ajout de class pour facilité la manipulation du DOM -->
+  <div class="card category-content category-<%= category.id %>">
     <ul>
       <% category.tasks.each do |task|  %>
-      <li>
+        <!-- Ajout de class pour facilité la manipulation du DOM -->
+      <li class="task-<%= task.id %>">
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>

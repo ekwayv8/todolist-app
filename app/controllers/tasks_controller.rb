@@ -9,8 +9,12 @@ before_action :authenticate_user!
     @category = Category.find(category_params)
     @task.category = @category
     if @task.save
-      redirect_to root_path
+      #Ajout permettant de gérer l'éventualité selon laquelle le navigateur de l'utilisateur a désactivé JavaScript ou bien ne le supporte pas.
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { }
       flash[:notice] = "Task created"
+    end
     else
       redirect_to root_path
       flash[:notice] = "Please try again"
