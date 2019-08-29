@@ -22,7 +22,7 @@ require 'faker'
 end
 
 #Ajout des emails à l'aide notre amie la gem Faker
-10.times do
-	email = Email.create(object: Faker::Movie.quote , body: Faker::Lorem.paragraph)
+5.times do
+	email = Email.create(body: Faker::Hipster.paragraph, object: Faker::Hipster.sentence)
 end	
 
