@@ -9,7 +9,15 @@
     <ul>
       <% category.tasks.each do |task|  %>
         <!-- Ajout de class pour facilité la manipulation du DOM -->
-      <li class="task-<%= task.id %>">
+      <li class="task-<%= task.id %>"           
+
+          <% if task.status %>
+            style="text-decoration: line-through;"
+          <% end %>>
+        <!-- La ligne ci dessus permet de barrer la tâche une fois qu'ellea été réalisée (comme sur Notion) -->
+
+
+        <%= check_box_tag :name, 1, task.status , data: { remote: true, url: task_path(task), params: { id: task.id}.to_param, method: "put" }%>
         <%= task.title  %>
         <% unless task.deadline.nil? %>
           , to read: <%= task.deadline.strftime('%D')  %>

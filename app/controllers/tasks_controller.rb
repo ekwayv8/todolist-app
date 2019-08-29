@@ -29,8 +29,13 @@ before_action :authenticate_user!
 
   def update
     @task = Task.find(params[:id])
+    @task.status = !@task.status
     @task.update(task_params)
-    redirect_to tasks_path
+    #Ajout permettant de gérer l'éventualité selon laquelle le navigateur de l'utilisateur a désactivé JavaScript ou bien ne le supporte pas.
+      respond_to do |format|
+          format.html { redirect_to tasks_path}
+          format.js { }
+      end
     flash[:notice] = "Task edited"
   end
 
