@@ -14,7 +14,7 @@ before_action :authenticate_user!
         format.html { redirect_to root_path }
         format.js { }
       flash[:notice] = "Task created"
-    end
+      end
     else
       redirect_to root_path
       flash[:notice] = "Please try again"
@@ -41,7 +41,12 @@ before_action :authenticate_user!
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to root_path
+    #Ajout permettant de gérer l'éventualité selon laquelle le navigateur de l'utilisateur a désactivé JavaScript ou bien ne le supporte pas.
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { }
+      flash[:notice] = "Task deleted"
+      end
   end
 
 
