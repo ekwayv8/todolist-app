@@ -1,6 +1,9 @@
 -------------- 🔢 AJAX 2/2 🔢 --------------
 
-1) Pour lancer l'app:
+1) Lien pour la prod:
+🚀 https://gmail-du-futur.herokuapp.com/ 🚀
+
+2) Pour lancer l'app:
 
 ```sh
 $ rails db:create
@@ -12,7 +15,7 @@ $ rails s
 localhost:3000 sur ton navigateur pour tester tout ça.
 Si tu veux check le code vas sur app/assets/javascripts/emails.js.
 
-2) Liste des exos réalisés:
+3) Liste des exos réalisés:
 
 ```sh
 1) 2.1. Une appli Rails 👋
