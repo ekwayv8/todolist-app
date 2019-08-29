@@ -1,0 +1,5 @@
+<!-- Fichier html lié à mon JS afin de ne pas encombrer ce dernier avec du html pur-->
+<h1><%= @email.object %></h1>
+<p id="email-body"><%= @email.body %></p>
+<%= link_to "Delete", email_path(@email), method: :delete, remote: true, class:"btn btn-info" %>
+<button class="bg-success">You haven't read this one  yet</button>

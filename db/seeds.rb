@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Category.destroy_all
+Task.destroy_all
+Email.destroy_all
 
 require 'faker'
 3.times do
@@ -17,3 +20,9 @@ require 'faker'
     my_task.save
   end
 end
+
+#Ajout des emails à l'aide notre amie la gem Faker
+10.times do
+	email = Email.create(object: Faker::Movie.quote , body: Faker::Lorem.paragraph)
+end	
+
